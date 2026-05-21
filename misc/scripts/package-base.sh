@@ -256,7 +256,8 @@ CDNUM="$(set_distro number)"
 DISTRO="$(set_distro parent)"
 DNUM="$(set_distro parent number)"
 KVER="$(uname -r)"
-export CARCH AARCH CDISTRO CDNUM DISTRO DNUM KVER
+DEB_HOST_MULTIARCH="$(dpkg-architecture -q DEB_HOST_MULTIARCH)"
+export CARCH AARCH CDISTRO CDNUM DISTRO DNUM KVER DEB_HOST_MULTIARCH
 
 # Running source on an isolated env
 safe_source "${pacfile}"

@@ -133,7 +133,7 @@ EOF
     fi
     if [[ ${NOSANDBOX} == "true" ]]; then
         sudo LOGDIR="${LOGDIR}" SCRIPTDIR="${SCRIPTDIR}" STAGEDIR="${STAGEDIR}" pkgdir="${pkgdir}" pacname="${pacname}" pkgbase="${pkgbase:-${pacname}}" \
-            srcdir="${srcdir}" git_pkgver="${git_pkgver}" homedir="${homedir}" CARCH="${CARCH}" AARCH="${AARCH}" \
+            srcdir="${srcdir}" git_pkgver="${git_pkgver}" homedir="${homedir}" CARCH="${CARCH}" AARCH="${AARCH}" DEB_HOST_MULTIARCH="${DEB_HOST_MULTIARCH}" \
             DISTRO="${DISTRO}" DNUM="${DNUM}" CDISTRO="${CDISTRO}" CDNUM="${CDNUM}" \
             KVER="${KVER}" NCPU="${NCPU}" PACSTALL_USER="${PACSTALL_USER}" TAR_OPTIONS='--no-same-owner' \
             "$tmpfile" && sudo rm "$tmpfile"
@@ -145,7 +145,7 @@ EOF
             --bind "$STAGEDIR" "$STAGEDIR" --bind "$PACDIR" "$PACDIR" --setenv LOGDIR "$LOGDIR" \
             --setenv SCRIPTDIR "$SCRIPTDIR" --setenv STAGEDIR "$STAGEDIR" --setenv pkgdir "$pkgdir" \
             --setenv srcdir "$srcdir" --setenv git_pkgver "$git_pkgver" --setenv pacname "$pacname" --setenv pkgbase "${pkgbase:-${pacname}}" \
-            --setenv homedir "$homedir" --setenv CARCH "$CARCH" --setenv AARCH "$AARCH" \
+            --setenv homedir "$homedir" --setenv CARCH "$CARCH" --setenv AARCH "$AARCH" --setenv DEB_HOST_MULTIARCH "$DEB_HOST_MULTIARCH" \
             --setenv DISTRO "$DISTRO"  --setenv DNUM "$DNUM" --setenv CDISTRO "$CDISTRO" --setenv CDNUM "$CDNUM" \
             --setenv KVER "$KVER" --setenv NCPU "$NCPU" --setenv PACSTALL_USER "$PACSTALL_USER" --setenv TAR_OPTIONS '--no-same-owner' \
             "$tmpfile" && sudo rm "$tmpfile"
